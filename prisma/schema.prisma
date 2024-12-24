@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model GetInTouchNguyenDuyTan {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  country   String
+  company   String
+  support   String
+  message   String
+  created_at DateTime @default(now())
+
+  @@map("get_in_touch_NguyenDuyTan")
+}
