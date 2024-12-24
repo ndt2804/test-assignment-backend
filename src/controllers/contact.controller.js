@@ -1,4 +1,4 @@
-import { createContact } from "../services/contact.service.js";
+import { createContact, getContact } from "../services/contact.service.js";
 import Joi from 'joi';
 export const createContactController = async (req, res) => {
     const { error } = contactSchema.validate(req.body);
@@ -13,6 +13,14 @@ export const createContactController = async (req, res) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: error.message || 'Something went wrong while creating the contact.' });
+    }
+};
+export const getAllContacts = async (req, res) => {
+    try {
+        const contacts = await getContact();
+        res.status(200).json(contacts);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
 };
 

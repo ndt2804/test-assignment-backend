@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "node --watch --env-file=.env src/index.js"
   },
   "author": "",
   "license": "ISC",
